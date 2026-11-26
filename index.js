@@ -42,11 +42,11 @@ const calculateAverage = (...args) => {
 console.log(calculateAverage(...marks));
 //---------Завдання 3. Обробка замовлення (Callback Functions)-----------------
 
-const processOrder = (orderAmount, callback) => {
+const processOrder = (orderAmount, freeCallback, paidCallback) => {
   if (orderAmount >= 1000) {
-    showFreeDelivery();
+    freeCallback();
   } else {
-    showPaidDelivery();
+    paidCallback();
   }
 };
 const showFreeDelivery = () => {
@@ -55,6 +55,6 @@ const showFreeDelivery = () => {
 const showPaidDelivery = () => {
   console.log('Your delivery costs 100 UAH.');
 };
-processOrder(1500, showFreeDelivery);
-processOrder(750, showPaidDelivery);
-processOrder(1000, showFreeDelivery);
+processOrder(1500, showFreeDelivery, showPaidDelivery);
+processOrder(750, showFreeDelivery, showPaidDelivery);
+processOrder(1100, showFreeDelivery, showPaidDelivery);
